@@ -1,0 +1,22 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UE4Editor-NetExpCpp.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"C:\Users\root\Documents\Unreal Projects\NetExpCpp\Intermediate\Build\Win64\NetExpCppEditor\Development\Engine\SharedPCH.Engine.h.obj"
+"C:\Users\root\Documents\Unreal Projects\NetExpCpp\Intermediate\Build\Win64\UE4Editor\Development\NetExpCpp\NetExpCpp.cpp.obj"
+"C:\Users\root\Documents\Unreal Projects\NetExpCpp\Intermediate\Build\Win64\UE4Editor\Development\NetExpCpp\NetExpCppCharacter.cpp.obj"
+"C:\Users\root\Documents\Unreal Projects\NetExpCpp\Intermediate\Build\Win64\UE4Editor\Development\NetExpCpp\NetExpCppGameMode.cpp.obj"
+"C:\Users\root\Documents\Unreal Projects\NetExpCpp\Intermediate\Build\Win64\UE4Editor\Development\NetExpCpp\NetExpCppHUD.cpp.obj"
+"C:\Users\root\Documents\Unreal Projects\NetExpCpp\Intermediate\Build\Win64\UE4Editor\Development\NetExpCpp\NetExpCppProjectile.cpp.obj"
+"C:\Users\root\Documents\Unreal Projects\NetExpCpp\Intermediate\Build\Win64\UE4Editor\Development\NetExpCpp\NetExpCpp.init.gen.cpp.obj"
+"C:\Users\root\Documents\Unreal Projects\NetExpCpp\Intermediate\Build\Win64\UE4Editor\Development\NetExpCpp\NetExpCppCharacter.gen.cpp.obj"
+"C:\Users\root\Documents\Unreal Projects\NetExpCpp\Intermediate\Build\Win64\UE4Editor\Development\NetExpCpp\NetExpCppGameMode.gen.cpp.obj"
+"C:\Users\root\Documents\Unreal Projects\NetExpCpp\Intermediate\Build\Win64\UE4Editor\Development\NetExpCpp\NetExpCppHUD.gen.cpp.obj"
+"C:\Users\root\Documents\Unreal Projects\NetExpCpp\Intermediate\Build\Win64\UE4Editor\Development\NetExpCpp\NetExpCppProjectile.gen.cpp.obj"
+"C:\Users\root\Documents\Unreal Projects\NetExpCpp\Intermediate\Build\Win64\UE4Editor\Development\NetExpCpp\Default.rc2.res"
+/OUT:"C:\Users\root\Documents\Unreal Projects\NetExpCpp\Intermediate\Build\Win64\UE4Editor\Development\NetExpCpp\UE4Editor-NetExpCpp.lib"
+/INCLUDE:IMPLEMENT_MODULE_NetExpCpp
