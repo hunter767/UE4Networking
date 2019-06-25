@@ -80,6 +80,17 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Gameplay)
 	uint32 bUsingMotionControllers : 1;
 
+private:
+	bool AttemptSpawnProjectile();
+	bool CanFire() { return true; }	//Placeholder
+	void SpawnProjectile();
+
+	UFUNCTION(Server, Reliable, WithValidation)
+	void ServerSpawnProjectile();
+
+	void ServerSpawnProjectile_Implementation();
+	bool ServerSpawnProjectile_Validate();
+
 protected:
 	
 	/** Fires a projectile. */

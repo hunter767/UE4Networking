@@ -17,6 +17,7 @@ void EmptyLinkFunctionForGeneratedCodeNetExpCppCharacter() {}
 	NETEXPCPP_API UClass* Z_Construct_UClass_ANetExpCppCharacter();
 	ENGINE_API UClass* Z_Construct_UClass_ACharacter();
 	UPackage* Z_Construct_UPackage__Script_NetExpCpp();
+	NETEXPCPP_API UFunction* Z_Construct_UFunction_ANetExpCppCharacter_ServerSpawnProjectile();
 	ENGINE_API UClass* Z_Construct_UClass_UAnimMontage_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USoundBase_NoRegister();
 	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
@@ -27,8 +28,40 @@ void EmptyLinkFunctionForGeneratedCodeNetExpCppCharacter() {}
 	ENGINE_API UClass* Z_Construct_UClass_USceneComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USkeletalMeshComponent_NoRegister();
 // End Cross Module References
+	static FName NAME_ANetExpCppCharacter_ServerSpawnProjectile = FName(TEXT("ServerSpawnProjectile"));
+	void ANetExpCppCharacter::ServerSpawnProjectile()
+	{
+		ProcessEvent(FindFunctionChecked(NAME_ANetExpCppCharacter_ServerSpawnProjectile),NULL);
+	}
 	void ANetExpCppCharacter::StaticRegisterNativesANetExpCppCharacter()
 	{
+		UClass* Class = ANetExpCppCharacter::StaticClass();
+		static const FNameNativePtrPair Funcs[] = {
+			{ "ServerSpawnProjectile", &ANetExpCppCharacter::execServerSpawnProjectile },
+		};
+		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_ANetExpCppCharacter_ServerSpawnProjectile_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ANetExpCppCharacter_ServerSpawnProjectile_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "NetExpCppCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ANetExpCppCharacter_ServerSpawnProjectile_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ANetExpCppCharacter, nullptr, "ServerSpawnProjectile", 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x80240CC1, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ANetExpCppCharacter_ServerSpawnProjectile_Statics::Function_MetaDataParams, ARRAY_COUNT(Z_Construct_UFunction_ANetExpCppCharacter_ServerSpawnProjectile_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ANetExpCppCharacter_ServerSpawnProjectile()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ANetExpCppCharacter_ServerSpawnProjectile_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	UClass* Z_Construct_UClass_ANetExpCppCharacter_NoRegister()
 	{
@@ -37,6 +70,7 @@ void EmptyLinkFunctionForGeneratedCodeNetExpCppCharacter() {}
 	struct Z_Construct_UClass_ANetExpCppCharacter_Statics
 	{
 		static UObject* (*const DependentSingletons[])();
+		static const FClassFunctionLinkInfo FuncInfo[];
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
@@ -108,6 +142,9 @@ void EmptyLinkFunctionForGeneratedCodeNetExpCppCharacter() {}
 	UObject* (*const Z_Construct_UClass_ANetExpCppCharacter_Statics::DependentSingletons[])() = {
 		(UObject* (*)())Z_Construct_UClass_ACharacter,
 		(UObject* (*)())Z_Construct_UPackage__Script_NetExpCpp,
+	};
+	const FClassFunctionLinkInfo Z_Construct_UClass_ANetExpCppCharacter_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_ANetExpCppCharacter_ServerSpawnProjectile, "ServerSpawnProjectile" }, // 3231476835
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ANetExpCppCharacter_Statics::Class_MetaDataParams[] = {
@@ -276,11 +313,11 @@ void EmptyLinkFunctionForGeneratedCodeNetExpCppCharacter() {}
 		"Game",
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
-		nullptr,
+		FuncInfo,
 		Z_Construct_UClass_ANetExpCppCharacter_Statics::PropPointers,
 		nullptr,
 		ARRAY_COUNT(DependentSingletons),
-		0,
+		ARRAY_COUNT(FuncInfo),
 		ARRAY_COUNT(Z_Construct_UClass_ANetExpCppCharacter_Statics::PropPointers),
 		0,
 		0x008000A0u,
@@ -295,7 +332,7 @@ void EmptyLinkFunctionForGeneratedCodeNetExpCppCharacter() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ANetExpCppCharacter, 3049741678);
+	IMPLEMENT_CLASS(ANetExpCppCharacter, 1003966959);
 	template<> NETEXPCPP_API UClass* StaticClass<ANetExpCppCharacter>()
 	{
 		return ANetExpCppCharacter::StaticClass();

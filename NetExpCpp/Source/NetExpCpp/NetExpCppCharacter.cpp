@@ -138,7 +138,24 @@ void ANetExpCppCharacter::SetupPlayerInputComponent(class UInputComponent* Playe
 	PlayerInputComponent->BindAxis("LookUpRate", this, &ANetExpCppCharacter::LookUpAtRate);
 }
 
-void ANetExpCppCharacter::OnFire()
+bool ANetExpCppCharacter::AttemptSpawnProjectile()
+{
+	if (CanFire())
+	{
+		if (Role < ROLE_Authority)
+		{
+			ServerSpawnProjectile();
+		}
+		else
+		{
+			SpawnProjectile();
+		}
+		return true;
+	}
+	return false;
+}
+
+void ANetExpCppCharacter::SpawnProjectile()
 {
 	// try and fire a projectile
 	if (ProjectileClass != NULL)
@@ -167,21 +184,37 @@ void ANetExpCppCharacter::OnFire()
 			}
 		}
 	}
+}
 
-	// try and play the sound if specified
-	if (FireSound != NULL)
-	{
-		UGameplayStatics::PlaySoundAtLocation(this, FireSound, GetActorLocation());
-	}
+void ANetExpCppCharacter::ServerSpawnProjectile_Implementation()
+{
+	SpawnProjectile();
+}
 
-	// try and play a firing animation if specified
-	if (FireAnimation != NULL)
+bool ANetExpCppCharacter::ServerSpawnProjectile_Validate()
+{
+	return true;
+}
+
+void ANetExpCppCharacter::OnFire()
+{
+	if (AttemptSpawnProjectile())
 	{
-		// Get the animation object for the arms mesh
-		UAnimInstance* AnimInstance = Mesh1P->GetAnimInstance();
-		if (AnimInstance != NULL)
+		// try and play the sound if specified
+		if (FireSound != NULL)
 		{
-			AnimInstance->Montage_Play(FireAnimation, 1.f);
+			UGameplayStatics::PlaySoundAtLocation(this, FireSound, GetActorLocation());
+		}
+
+		// try and play a firing animation if specified
+		if (FireAnimation != NULL)
+		{
+			// Get the animation object for the arms mesh
+			UAnimInstance* AnimInstance = Mesh1P->GetAnimInstance();
+			if (AnimInstance != NULL)
+			{
+				AnimInstance->Montage_Play(FireAnimation, 1.f);
+			}
 		}
 	}
 }

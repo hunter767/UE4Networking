@@ -13,8 +13,42 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define NETEXPCPP_NetExpCppCharacter_generated_h
 
-#define NetExpCpp_Source_NetExpCpp_NetExpCppCharacter_h_14_RPC_WRAPPERS
-#define NetExpCpp_Source_NetExpCpp_NetExpCppCharacter_h_14_RPC_WRAPPERS_NO_PURE_DECLS
+#define NetExpCpp_Source_NetExpCpp_NetExpCppCharacter_h_14_RPC_WRAPPERS \
+	virtual bool ServerSpawnProjectile_Validate(); \
+	virtual void ServerSpawnProjectile_Implementation(); \
+ \
+	DECLARE_FUNCTION(execServerSpawnProjectile) \
+	{ \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		if (!P_THIS->ServerSpawnProjectile_Validate()) \
+		{ \
+			RPC_ValidateFailed(TEXT("ServerSpawnProjectile_Validate")); \
+			return; \
+		} \
+		P_THIS->ServerSpawnProjectile_Implementation(); \
+		P_NATIVE_END; \
+	}
+
+
+#define NetExpCpp_Source_NetExpCpp_NetExpCppCharacter_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execServerSpawnProjectile) \
+	{ \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		if (!P_THIS->ServerSpawnProjectile_Validate()) \
+		{ \
+			RPC_ValidateFailed(TEXT("ServerSpawnProjectile_Validate")); \
+			return; \
+		} \
+		P_THIS->ServerSpawnProjectile_Implementation(); \
+		P_NATIVE_END; \
+	}
+
+
+#define NetExpCpp_Source_NetExpCpp_NetExpCppCharacter_h_14_EVENT_PARMS
+#define NetExpCpp_Source_NetExpCpp_NetExpCppCharacter_h_14_CALLBACK_WRAPPERS
 #define NetExpCpp_Source_NetExpCpp_NetExpCppCharacter_h_14_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesANetExpCppCharacter(); \
@@ -68,12 +102,16 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ANetExpCppCharacter); \
 	FORCEINLINE static uint32 __PPO__L_MotionController() { return STRUCT_OFFSET(ANetExpCppCharacter, L_MotionController); }
 
 
-#define NetExpCpp_Source_NetExpCpp_NetExpCppCharacter_h_11_PROLOG
+#define NetExpCpp_Source_NetExpCpp_NetExpCppCharacter_h_11_PROLOG \
+	NetExpCpp_Source_NetExpCpp_NetExpCppCharacter_h_14_EVENT_PARMS
+
+
 #define NetExpCpp_Source_NetExpCpp_NetExpCppCharacter_h_14_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
 	NetExpCpp_Source_NetExpCpp_NetExpCppCharacter_h_14_PRIVATE_PROPERTY_OFFSET \
 	NetExpCpp_Source_NetExpCpp_NetExpCppCharacter_h_14_RPC_WRAPPERS \
+	NetExpCpp_Source_NetExpCpp_NetExpCppCharacter_h_14_CALLBACK_WRAPPERS \
 	NetExpCpp_Source_NetExpCpp_NetExpCppCharacter_h_14_INCLASS \
 	NetExpCpp_Source_NetExpCpp_NetExpCppCharacter_h_14_STANDARD_CONSTRUCTORS \
 public: \
@@ -85,6 +123,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
 	NetExpCpp_Source_NetExpCpp_NetExpCppCharacter_h_14_PRIVATE_PROPERTY_OFFSET \
 	NetExpCpp_Source_NetExpCpp_NetExpCppCharacter_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
+	NetExpCpp_Source_NetExpCpp_NetExpCppCharacter_h_14_CALLBACK_WRAPPERS \
 	NetExpCpp_Source_NetExpCpp_NetExpCppCharacter_h_14_INCLASS_NO_PURE_DECLS \
 	NetExpCpp_Source_NetExpCpp_NetExpCppCharacter_h_14_ENHANCED_CONSTRUCTORS \
 private: \
