@@ -1,2 +1,0 @@
-C:\Users\root\Documents\GitHub\UE4Networking\NetExpCpp\Intermediate\Build\Win64\UE4Editor\Development\NetExpCpp\Definitions.NetExpCpp.h
-c:\users\root\documents\github\ue4networking\netexpcpp\source\netexpcpp\NetExpCpp.h
